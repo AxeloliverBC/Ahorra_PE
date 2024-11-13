@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHORRA PE CAUSA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Contenedor del móvil -->
+    <div class="phone-container">
+        <div class="phone">
+            <!-- Páginas de autenticación -->
+            <div id="auth-pages">
+                <!-- Página de inicio de sesión -->
+                <div id="login-page" class="page active">
+                    <h1><i class="fas fa-piggy-bank"></i> AHORRA PE CAUSA</h1>
+                    <form id="login-form">
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <button type="submit">Iniciar Sesión</button>
+                    </form>
+                    <br>
+                    <p>¿No tienes cuenta? <a href="#" id="show-register">Regístrate</a></p>
+                </div>
+
+                <!-- Página de registro -->
+                <div id="register-page" class="page">
+                    <h1><i class="fas fa-user-plus"></i> Registro</h1>
+                    <form id="register-form">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="password" placeholder="Contraseña" required>
+                        <input type="password" placeholder="Confirmar contraseña" required>
+                        <button type="submit">Registrarse</button>
+                    </form>
+                    <br>
+                    <p>¿Ya tienes cuenta? <a href="#" id="show-login">Inicia sesión</a></p>
+                </div>
+            </div>
+
+            <!-- Contenido principal de la app -->
+            <div id="app-content" class="hidden">
+                <!-- Barra superior -->
+                <div class="top-bar">
+                    <div class="profile-info">
+                        <img src="img/realeza.jpg" alt="Foto de perfil" class="profile-pic">
+                        <span id="user-name">Usuario</span>
+                    </div>
+                    <button id="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+
+                <!-- Páginas principales -->
+                <div id="home-page" class="page">
+                    <div class="balance-card">
+                        <h2>Saldo Total</h2>
+                        <p class="balance">S/. <span id="total-balance">0.00</span></p>
+                        <button id="add-money" class="action-button">
+                            <i class="fas fa-plus"></i> Agregar dinero
+                        </button>
+                    </div>
+
+                    <div class="recent-activity">
+                        <h3>Actividad Reciente</h3>
+                        <div id="activity-list"></div>
+                    </div>
+                </div>
+
+                <div id="withdraw-page" class="page">
+                    <h2>Retiro de Dinero</h2>
+                    <div class="challenge-container">
+                        <h3>¡Completa el reto para retirar!</h3>
+                        <div id="memory-game" class="game-container">
+                            <div class="game-board"></div>
+                            <br>
+                            <div class="game-controls">
+                                <button id="start-game">Iniciar Reto</button>
+                            </div>
+                        </div>
+                        <div id="withdraw-form" class="hidden">
+                            <input type="number" placeholder="Monto a retirar" min="1">
+                            <button id="withdraw-btn" disabled>Retirar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="goals-page" class="page">
+                    <h2>Mis Metas</h2>
+                    <div class="add-goal">
+                        <button id="new-goal-btn">
+                            <i class="fas fa-plus"></i> Nueva Meta
+                        </button>
+                    </div>
+                    <div id="goals-list"></div>
+                </div>
+
+                <!-- Navegación inferior -->
+                <nav class="bottom-nav">
+                    <button class="nav-btn" data-page="home">
+                        <i class="fas fa-home"></i>
+                        <span>Inicio</span>
+                    </button>
+                    <button class="nav-btn" data-page="withdraw">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Retirar</span>
+                    </button>
+                    <button class="nav-btn" data-page="goals">
+                        <i class="fas fa-bullseye"></i>
+                        <span>Metas</span>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Modales -->
+            <div id="add-money-modal" class="modal">
+                <div class="modal-content">
+                    <h3>Agregar Dinero</h3>
+                    <form id="add-money-form">
+                        <input type="number" placeholder="Monto en soles" min="1" required>
+                        <button type="submit">Agregar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="new-goal-modal" class="modal">
+                <div class="modal-content">
+                    <h3>Nueva Meta de Ahorro</h3>
+                    <form id="new-goal-form">
+                        <input type="text" placeholder="Nombre de la meta" required>
+                        <input type="number" placeholder="Monto objetivo (S/.)" required>
+                        <textarea placeholder="Descripción" required></textarea>
+                        <button type="submit">Crear Meta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
